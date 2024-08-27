@@ -1,0 +1,15 @@
+#!usr/bin/perl
+$protein="MRWLLLYYALCFSLSKASAHTVELNNMFGQIQSPGYPDSYPSDSEVTWNITVPDGFRIKL";
+$three, $single; @three;
+@protein=split("",$protein);
+$len=length $protein;
+for($i=0; $i<$len; $i++) {
+$single=substr($protein,$i,1);
+@three[$i].= three($single);}
+print "Three Letter Code Conversion Of $protein Is\n@three\n";
+sub three {my ($single)=@_;$single=uc $single;
+my (%aminoAcid) =
+('A'=>'Ala','R'=>'Arg','N'=>'Asn','D'=>'Asp','C'=>'Cys','E'=>'Glu','Q'=>'Gln','G'=>'Gly','H'=>'His','I'=>'Ile','L'=>'Leu','K'=>'Lys','M'=>'Met','F'=>'Phe','P'=>'Pro','S'=>'Ser','T'=>'Thr','W'=>'Trp','Y'=>'Tyr','V'=>'Val');
+if (exists $aminoAcid{$single} ){return $aminoAcid{$single};}
+else {print STDERR "Not Exist \"$single\" \n";exit;}}
+

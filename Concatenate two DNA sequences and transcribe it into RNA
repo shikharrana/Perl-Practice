@@ -1,0 +1,20 @@
+print "\n\n\t\*********DNA To RNA ***** \n\n";
+print "ENTER THE FILENAME OF THE DNA SEQUENCE:= ";
+$dnafilename = <STDIN>;
+chomp $dnafilename;
+unless ( open(DNAFILE, $dnafilename) ) {
+    print "Cannot open file \"$dnafilename\"\n\n";
+    goto h;
+}
+@DNA = <DNAFILE>;
+close DNAFILE;
+$DNA = join( '', @DNA);
+print "The original DNA Sequence :=\n\n";
+$DNA =~ s/\s//g;
+print "$DNA\n\n";
+$RNA = $DNA;
+$RNA =~ s/T/U/g;
+$RNA =~ s/t/u/g;
+print "Transcribing DNA TO RNA :=\n\n";
+print "$RNA\n";
+<STDIN>;

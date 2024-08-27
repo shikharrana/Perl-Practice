@@ -1,0 +1,22 @@
+#!/usr/local/bin/perl
+print "Enter the filename: \n";
+$filename = <STDIN>;
+chomp $filename;
+unless(open(GENBANK,$filename))
+{
+print "$filename :::: File doesnot exist \n";
+exit;
+}
+print "Sequence from Genbank file: \n";
+while (<GENBANK>) {
+if (/ORIGIN/../\//)
+{
+next if/ORIGIN/;
+$s= $_;
+$s =~s/\s//g;
+$s =~s[0-9]//g;
+    print $s;
+}}
+print "\n";
+close(GENBANK);
+exit;

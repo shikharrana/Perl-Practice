@@ -1,0 +1,50 @@
+#!/usr/bin/perl
+print"\n\n....Reverse compliment Program....\n\n";
+$dna=ATGCTTGGACATAGA;
+$rev=reverse $dna;
+$rev=~tr/ATGC/TACG/;   # translates all characters of Search List into the corresponding characters of Replacement List.
+print "Original dna sequence: $dna \n";
+print "Reverse compliment: $rev \n\n";
+
+
+
+
+#For user input
+
+print "\n\t********** GET REVERSE COMPLEMENT OF DNA **********\n\n";
+print "PLEASE TYPE THE FILENAME OF THE DNA SEQUENCE := ";
+$dnafilename = <STDIN>;
+chomp $dnafilename;
+unless ( open(DNAFILE, $dnafilename) ) 
+{
+    print "Cannot open file \"$dnafilename\"\n\n";
+    exit;
+}
+@DNA = <DNAFILE>;
+close DNAFILE;
+$DNA = join( '', @DNA);
+$DNA =~ s/\s//g;
+print "\nTHE ORIGINAL DNA SEQUENCE :=\n$DNA\n\n";
+@DNA = split( '', $DNA );
+print"REVERSE COMPLEMENT OF THE DNA SEQUENCE :=\n";
+
+foreach $nucleotide(reverse(@DNA)) {
+
+
+
+    if      ($nucleotide =~ /a/i) {
+        print "T";
+        print WRITE "T";
+    } elsif ($nucleotide =~ /t/i) {
+        print "A";
+        print WRITE "A";
+    } elsif ($nucleotide =~ /g/i) {
+        print "C";
+        print WRITE "C";
+    } elsif ($nucleotide =~ /c/i) {
+        print "G";
+        print WRITE "G";
+    } else {
+        die "$0:  Bad nucleotide!  [$nucleotide]\n\n";
+    }
+}
