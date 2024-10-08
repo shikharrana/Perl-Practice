@@ -1,2 +1,2 @@
 # Perl-Practice
-Some codes that i practiced in my curriculum.
+Some scripts that I practiced in my curriculum.
